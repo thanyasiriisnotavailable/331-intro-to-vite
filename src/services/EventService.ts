@@ -1,4 +1,5 @@
-import axios from 'axios'
+import type { EventItem } from '@/type'
+import axios, { Axios, type AxiosResponse } from 'axios'
 
 const apiClient = axios.create({
   baseURL: 'https://my-json-server.typicode.com/thanyasiriisnotavailable/331-intro-to-vite/',
@@ -11,6 +12,9 @@ const apiClient = axios.create({
 
 export default {
   getEvents() {
-    return apiClient.get('/events')
+    return apiClient.get<EventItem[]>('/events')
+  },
+  getEventById(id: number): Promise<AxiosResponse<EventItem>>{
+    return apiClient.get<EventItem>('events/' + id.toString())
   }
 }

@@ -15,3 +15,13 @@ export interface Student {
   studentId: string
   name: string
 }
+
+export interface EventItem {
+  id: number
+  category: string
+  title: string
+  description: string
+  location: string
+  date: string
+  time: string
+}
